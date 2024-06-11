@@ -16,3 +16,14 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Contact(models.Model):
+       name = models.CharField(max_length=15)
+       email = models.CharField(max_length=20)
+       message = models.TextField(max_length=200)
+    
+       def __str__(self):
+        return self.name
+
+

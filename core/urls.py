@@ -16,10 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from portfolio import views
+from django.conf.urls.i18n import i18n_patterns
+
 
 urlpatterns = [
     path('portfolio/', include('portfolio.urls')),
+    path('contact/', views.contactPage, name="contact"),
+    path("resume/<int:id>", views.resume, name="resume"),
+
     path('admin/', admin.site.urls),
+]
+
+
+
+# urlpatterns = [
+#     path("", views.homePage, name="home"),
+#     path("list/", views.resumeList, name="resume-list"),
+# ]
+
+urlpatterns = [
+    *i18n_patterns(*urlpatterns, prefix_default_language=False),
+    path("set-language/<str:language>", views.set_language, name="set-language"),
 ]
 
 
