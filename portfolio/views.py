@@ -16,8 +16,6 @@ from urllib.parse import urlparse
 
 
 
-
-
 def portfolio_create(request):
     if request.method == 'POST':
         form = PortfolioForm(request.POST)
@@ -53,7 +51,7 @@ def contactPage(request):
         email_message = EmailMessage(
             subject="Yeni Müraciət",
             body=html_message,
-            from_email="codersaz@gmail.com",
+            from_email="",
             to=[email],
         )
 
@@ -61,7 +59,7 @@ def contactPage(request):
 
         email_message.send()
 
-        messages.success(request, "Müraciətiniz uğurla göndərildi...")
+        messages.success(request, "Ugutla gonderildi...")
 
     return render(request, "contact.html")
 
@@ -75,8 +73,6 @@ def resume(request, id):
     }
     pdf = pdfkit.from_string(html, False, options)
     response = HttpResponse(pdf, content_type="application/pdf")
-    # response["Content-Disposition"] = "attachment"
-    # filename = "download.pdf"
     response["Content-Disposition"] = 'attachment; filename="download.pdf"'
     return response
 

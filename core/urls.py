@@ -24,15 +24,11 @@ urlpatterns = [
     path('portfolio/', include('portfolio.urls')),
     path('contact/', views.contactPage, name="contact"),
     path("resume/<int:id>", views.resume, name="resume"),
-
     path('admin/', admin.site.urls),
 ]
 
-
-
 # urlpatterns = [
 #     path("", views.homePage, name="home"),
-#     path("list/", views.resumeList, name="resume-list"),
 # ]
 
 urlpatterns = [
