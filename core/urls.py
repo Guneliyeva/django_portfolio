@@ -27,10 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# urlpatterns = [
-#     path("", views.homePage, name="home"),
-# ]
-
 urlpatterns = [
     *i18n_patterns(*urlpatterns, prefix_default_language=False),
     path("set-language/<str:language>", views.set_language, name="set-language"),
